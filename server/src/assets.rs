@@ -11,7 +11,7 @@ use rust_embed::RustEmbed;
 #[prefix = "/"]
 pub struct Asset;
 
-pub async fn index_handler() -> impl IntoResponse {
+pub async fn index_handler(_auth: auth::AdminAuth) -> impl IntoResponse {
     static_handler("/index.html".parse::<Uri>().unwrap()).await
 }
 
